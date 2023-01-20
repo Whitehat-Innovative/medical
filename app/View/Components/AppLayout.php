@@ -2,6 +2,9 @@
 
 namespace App\View\Components;
 
+use App\Http\Middleware\User;
+use App\Models\User as ModelsUser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class AppLayout extends Component
@@ -13,6 +16,13 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return view('layouts.app');
+        if (Auth::user()->code==007) {
+
+            $u= ModelsUser::find(1);
+        }
+
+     
+     
+        return view('layouts.app', ['u'=>$u]);
     }
 }
