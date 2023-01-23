@@ -54,7 +54,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/postlist', [PostController::class, 'allpost'])->name('blog.list');
 
 
-    /* Research route */
+    /* Research/Blog route */
     Route::get('/addresearch/view', [PostController::class,'research'])->name('research');
     Route::get('/editresearch/{}/view', [PostController::class, 'editresearchview'])->name('research.edit.view');
 
@@ -63,6 +63,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::post('/deleteresearch/{}', [PostController::class, 'destroyresearch'])->name('research.delete');
 
     Route::get('/researchlist', [PostController::class, 'allresearch'])->name('research.list');
+    Route::get('/bloglist', [PostController::class, 'allblog'])->name('blog.list');
 
     /* All Users Route */
     Route::get('/allusers', [UserController::class, 'allusers'])->name('view.user');
